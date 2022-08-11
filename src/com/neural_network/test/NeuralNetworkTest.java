@@ -1,7 +1,10 @@
 package com.neural_network.test;
 
 import com.neural_network.main.NeuralNetwork;
+import java.util.ArrayList;
+import java.util.List;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class NeuralNetworkTest {
@@ -19,18 +22,21 @@ class NeuralNetworkTest {
   @Test
   public void testWeightSpecification() {
     for (double[] weight : new NeuralNetwork().getWeightsHiddenToOutput()) {
-      for (double w : weight){
+      for (double w : weight) {
         assertTrue(w > -0.5 || w < 0.5);
       }
     }
 
     for (double[] weight : new NeuralNetwork().getWeightsInputToHidden()) {
-      for (double w : weight){
+      for (double w : weight) {
         assertTrue(w > -0.5 || w < 0.5);
       }
     }
   }
 
+  @Test
+  public void testQuery(){
 
+  }
 
 }

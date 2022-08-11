@@ -1,5 +1,7 @@
 package com.neural_network.main;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class NeuralNetwork {
@@ -53,26 +55,42 @@ public class NeuralNetwork {
         + outputNodes + "; learning rate = " + learningRate;
   }
 
+  public double[][] query(List<Double> inputs_list) {
+    double[][] inputs = transportArray(inputs_list);
+    return null;
+  }
+
+  private double[][] transportArray(List<Double> inputs_list) {
+    double[] inputsOneDimensionalArray = changeFromListToArrayForDouble(inputs_list);
+
+    return structureWeightsTo2dimensional(inputsOneDimensionalArray.length, 1,
+                                          inputsOneDimensionalArray);
+  }
+
+  private double[] changeFromListToArrayForDouble(List<Double> inputs_list) {
+    return inputs_list.stream().mapToDouble(Double::doubleValue).toArray();
+  }
+
   private void generateLinkWeights() {
     this.weightsInputToHidden = structureWeightsTo2dimensional(this.inputNodes, this.hiddenNodes,
-        addNegativeNumbersForWeights(generateRandomizeWeights(this.inputNodes,
-            this.hiddenNodes)));
+        addNegativeNumbersForWeights(generateRandomizeWeights(this.inputNodes, this.hiddenNodes)));
     this.weightsHiddenToOutput = structureWeightsTo2dimensional(this.hiddenNodes, this.outputNodes,
-        addNegativeNumbersForWeights(generateRandomizeWeights(this.hiddenNodes,
-            this.outputNodes)));
+        addNegativeNumbersForWeights(generateRandomizeWeights(this.hiddenNodes, this.outputNodes)));
   }
 
   private double[][] structureWeightsTo2dimensional(int columns, int rows,
       double[] oneDimensional) {
     double[][] weights = new double[columns][rows];
-    int counter = 0;
+    int counterColumns = 0;
+    int counterRows = 0;
     for (double weight : oneDimensional) {
-      if (counter != rows) {
-        weights[columns - 1][counter++] = weight;
+      if (counterColumns == columns && counterRows == rows) {
+        return weights;
+      } else if (counterRows == rows) {
+        counterRows = 0;
+        weights[++counterColumns][counterRows++] = weight;
       } else {
-        counter = 0;
-        weights[columns - 2][counter++] = weight;
-        columns--;
+        weights[counterColumns][counterRows++] = weight;
       }
     }
     return weights;
@@ -88,5 +106,4 @@ public class NeuralNetwork {
   private double[] generateRandomizeWeights(int node1, int node2) {
     return new Random().doubles(node1 * node2).toArray();
   }
-
 }

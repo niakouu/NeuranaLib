@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="First structure of an NeuralNetwork object">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Changing inputs from list to a two dimensionals array">
+      <change afterPath="$PROJECT_DIR$/src/com/neural_network/main/Calculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machineLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/machineLearning.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/MatrixCalculator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Weight.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +66,7 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest.testWeightSpecification">
+  <component name="RunManager" selected="Application.com.neural_network.main.Main">
     <configuration name="com.neural_network.main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.neural_network.main.Main" />
       <module name="machineLearning" />
@@ -110,8 +114,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NeuralNetworkTest.testWeightSpecification" />
         <item itemvalue="Application.com.neural_network.main.Main" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testWeightSpecification" />
         <item itemvalue="JUnit.NeuralNetworkTest.testToString" />
       </list>
     </recent_temporary>
@@ -137,7 +141,7 @@
       <workItem from="1660101628594" duration="23000" />
       <workItem from="1660101661771" duration="96000" />
       <workItem from="1660101769012" duration="1436000" />
-      <workItem from="1660156911000" duration="19390000" />
+      <workItem from="1660156911000" duration="29675000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -160,7 +164,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660177664007</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="trying to add matrix">
+      <created>1660240425159</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1660240425159</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +191,10 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Testing commit on Intellij" />
     <MESSAGE value="First structure of an NeuralNetwork object" />
-    <option name="LAST_COMMIT_MESSAGE" value="First structure of an NeuralNetwork object" />
+    <MESSAGE value="Added weights and some tests" />
+    <MESSAGE value="trying to add matrix" />
+    <MESSAGE value="Changing inputs from list to a two dimensionals array" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changing inputs from list to a two dimensionals array" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -189,6 +203,11 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
