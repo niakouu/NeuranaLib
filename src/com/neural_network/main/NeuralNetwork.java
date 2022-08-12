@@ -1,6 +1,5 @@
 package com.neural_network.main;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -9,10 +8,10 @@ public class NeuralNetwork {
   private static final int DEFAULT_NODES = 3;
   private static final float DEFAULT_LEARNING_RATE = 0.3f;
 
-  private int inputNodes;
-  private int hiddenNodes;
-  private int outputNodes;
-  private float learningRate;
+  private final int inputNodes;
+  private final int hiddenNodes;
+  private final int outputNodes;
+  private final float learningRate;
   private double[][] weightsInputToHidden;
   private double[][] weightsHiddenToOutput;
 
@@ -57,14 +56,21 @@ public class NeuralNetwork {
 
   public double[][] query(List<Double> inputs_list) {
     double[][] inputs = transportArray(inputs_list);
-    return null;
+    double[][] hiddenInputs = Calculator.multiplyMatrix(this.weightsInputToHidden, inputs);
+    double[][] hiddenOutputs = Calculator.sigmoid(hiddenInputs);
+    double[][] finalOutputs = Calculator.multiplyMatrix(this.weightsHiddenToOutput, hiddenOutputs);
+    return Calculator.sigmoid(finalOutputs);
+  }
+
+  public void train() {
+
   }
 
   private double[][] transportArray(List<Double> inputs_list) {
     double[] inputsOneDimensionalArray = changeFromListToArrayForDouble(inputs_list);
 
     return structureWeightsTo2dimensional(inputsOneDimensionalArray.length, 1,
-                                          inputsOneDimensionalArray);
+        inputsOneDimensionalArray);
   }
 
   private double[] changeFromListToArrayForDouble(List<Double> inputs_list) {
@@ -104,6 +110,6 @@ public class NeuralNetwork {
   }
 
   private double[] generateRandomizeWeights(int node1, int node2) {
-    return new Random().doubles(node1 * node2).toArray();
+    return new Random().doubles((long) node1 * node2).toArray();
   }
 }

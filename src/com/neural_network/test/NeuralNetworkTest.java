@@ -1,10 +1,10 @@
 package com.neural_network.test;
 
+import com.neural_network.main.Calculator;
 import com.neural_network.main.NeuralNetwork;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class NeuralNetworkTest {
@@ -35,8 +35,22 @@ class NeuralNetworkTest {
   }
 
   @Test
-  public void testQuery(){
-
+  public void testMultiplyMatrix() {
+    double[][] arr1 = {{1, 2, 3}, {4, 5, 6}};
+    double[][] arr2 = {{7, 8}, {9, 10}, {11, 12}};
+    Assertions.assertArrayEquals(new double[][]{{58, 64}, {139, 154}},
+        Calculator.multiplyMatrix(arr1, arr2));
+    double[][] ar1 = {{1, 2}, {3, 4}};
+    double[][] ar2 = {{5, 6}, {7, 8}};
+    Assertions.assertArrayEquals(new double[][]{{19, 22}, {43, 50}},
+        Calculator.multiplyMatrix(ar1, ar2));
   }
 
+  @Test
+  public void testQuery() {
+    double[][] d = new NeuralNetwork().query(Arrays.asList(2.0, 9.0, 5.0));
+    Arrays.stream(d)
+        .forEach(x -> Arrays.stream(x)
+            .forEach(y -> System.out.println(y + " ")));
+  }
 }
