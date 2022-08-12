@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Query test passed">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Train made, now Test">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Calculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Calculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
     </list>
@@ -54,6 +54,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\edeli\Computer_Sciences\CleanCode\machineLearning\mnist_dataset" />
       <recent name="C:\Users\edeli\Computer_Sciences\CleanCode\machineLearning\src" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
@@ -63,8 +64,8 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest.testSubMatrix">
-    <configuration name="com.neural_network.main.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.NeuralNetworkTest.testDataset">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.neural_network.main.Main" />
       <module name="machineLearning" />
       <extension name="coverage">
@@ -77,7 +78,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkTest.testMultiplyMatrix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetworkTest.testDataset" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
         <pattern>
@@ -87,7 +88,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.neural_network.test" />
       <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="testMultiplyMatrix" />
+      <option name="METHOD_NAME" value="testDataset" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -125,7 +126,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkTest.testWeightSpecification" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetworkTest.testTranspose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
         <pattern>
@@ -135,7 +136,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.neural_network.test" />
       <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="testWeightSpecification" />
+      <option name="METHOD_NAME" value="testTranspose" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -143,11 +144,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NeuralNetworkTest.testSubMatrix" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testDataset" />
         <item itemvalue="Application.com.neural_network.main.Main" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testMultiplyMatrix" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testWeightSpecification" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testTranspose" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testSubMatrix" />
       </list>
     </recent_temporary>
   </component>
@@ -172,7 +173,7 @@
       <workItem from="1660101628594" duration="23000" />
       <workItem from="1660101661771" duration="96000" />
       <workItem from="1660101769012" duration="1436000" />
-      <workItem from="1660156911000" duration="38707000" />
+      <workItem from="1660156911000" duration="50373000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -216,7 +217,21 @@
       <option name="project" value="LOCAL" />
       <updated>1660269739301</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Working on train the network">
+      <created>1660272191416</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1660272191416</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Train made, now Test">
+      <created>1660282548141</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1660282548141</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -240,7 +255,9 @@
     <MESSAGE value="trying to add matrix" />
     <MESSAGE value="Changing inputs from list to a two dimensionals array" />
     <MESSAGE value="Query test passed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Query test passed" />
+    <MESSAGE value="Working on train the network" />
+    <MESSAGE value="Train made, now Test" />
+    <option name="LAST_COMMIT_MESSAGE" value="Train made, now Test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -251,6 +268,11 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="java.io.FileReader" memberName="sd" />
+      </pinned-members>
+    </pin-to-top-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
