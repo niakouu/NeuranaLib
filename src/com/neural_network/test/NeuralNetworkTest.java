@@ -1,10 +1,13 @@
 package com.neural_network.test;
 
-import com.neural_network.main.Calculator;
+import com.neural_network.main.Dataset;
+import com.neural_network.main.DoublesManipulation;
 import com.neural_network.main.NeuralNetwork;
 import java.util.Arrays;
+import javax.xml.crypto.Data;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class NeuralNetworkTest {
@@ -39,11 +42,11 @@ class NeuralNetworkTest {
     double[][] arr1 = {{1, 2, 3}, {4, 5, 6}};
     double[][] arr2 = {{7, 8}, {9, 10}, {11, 12}};
     Assertions.assertArrayEquals(new double[][]{{58, 64}, {139, 154}},
-        Calculator.multiplyMatrix(arr1, arr2));
+        DoublesManipulation.multiplyMatrix(arr1, arr2));
     double[][] ar1 = {{1, 2}, {3, 4}};
     double[][] ar2 = {{5, 6}, {7, 8}};
     Assertions.assertArrayEquals(new double[][]{{19, 22}, {43, 50}},
-        Calculator.multiplyMatrix(ar1, ar2));
+        DoublesManipulation.multiplyMatrix(ar1, ar2));
   }
 
   @Test
@@ -56,13 +59,34 @@ class NeuralNetworkTest {
 
   @Test
   public void testSubMatrix() {
-    Assertions.assertArrayEquals(new double[][]{{1, -1, 3},
-                                                {-1, 0, 2}},
-                                  Calculator.subtractMatrix(
-                                      new double[][]{{3, 4, 4},
-                                                     {5, 4, 6}},
-                                      new double[][]{{2, 5, 1},
-                                                     {6, 4, 4}}
-                                  ));
+    Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
+        DoublesManipulation.subtractMatrix(
+            new double[][]{{3, 4, 4}, {5, 4, 6}},
+            new double[][]{{2, 5, 1}, {6, 4, 4}}
+        ));
+  }
+
+  @Test
+  public void testTranspose() {
+    Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
+        DoublesManipulation.transpose(
+            new double[][]{{1, -1}, {-1, 0}, {3, 2}}
+        ));
+  }
+
+  @Test
+  public void testTrain() {
+
+  }
+
+  @Test
+  public void testDataset() {
+    double[][] data = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getInputs();
+    for(double[] i : data) {
+      for (double j : i) {
+        System.out.print(j);
+      }
+      System.out.println();
+    }
   }
 }

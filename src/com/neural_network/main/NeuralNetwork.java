@@ -56,26 +56,39 @@ public class NeuralNetwork {
 
   public double[][] query(List<Double> inputs_list) {
     double[][] inputs = transportToArray(inputs_list);
-    double[][] hiddenInputs = Calculator.multiplyMatrix(this.weightsInputToHidden, inputs);
-    double[][] hiddenOutputs = Calculator.sigmoid(hiddenInputs);
-    double[][] finalInputs = Calculator.multiplyMatrix(this.weightsHiddenToOutput, hiddenOutputs);
-    return Calculator.sigmoid(finalInputs);
+    double[][] hiddenInputs = DoublesManipulation.multiplyMatrix(this.weightsInputToHidden, inputs);
+    double[][] hiddenOutputs = DoublesManipulation.sigmoid(hiddenInputs);
+    double[][] finalInputs = DoublesManipulation.multiplyMatrix(this.weightsHiddenToOutput,
+        hiddenOutputs);
+    return DoublesManipulation.sigmoid(finalInputs);
   }
 
   public void train(List<Double> inputsList, List<Double> targetList) {
     double[][] inputs = transportToArray(inputsList);
-    double[][] hiddenInputs = Calculator.multiplyMatrix(this.weightsInputToHidden, inputs);
-    double[][] hiddenOutputs = Calculator.sigmoid(hiddenInputs);
-    double[][] finalInputs = Calculator.multiplyMatrix(this.weightsHiddenToOutput, hiddenOutputs);
-    double[][] finalOutputs = Calculator.sigmoid(finalInputs);
+    double[][] hiddenInputs = DoublesManipulation.multiplyMatrix(this.weightsInputToHidden, inputs);
+    double[][] hiddenOutputs = DoublesManipulation.sigmoid(hiddenInputs);
+    double[][] finalInputs = DoublesManipulation.multiplyMatrix(this.weightsHiddenToOutput,
+        hiddenOutputs);
+    double[][] finalOutputs = DoublesManipulation.sigmoid(finalInputs);
     double[][] targets = transportToArray(targetList);
-    double[][] outputErrors = Calculator.subtractMatrix(targets, finalOutputs);
-    double[][] hiddenErrors = Calculator.sigmoid(outputErrors);
+    double[][] outputErrors = DoublesManipulation.subtractMatrix(targets, finalOutputs);
+    double[][] hiddenErrors = DoublesManipulation.sigmoid(outputErrors);
+    this.weightsHiddenToOutput = updateWeights(outputErrors, finalOutputs, hiddenOutputs);
+    this.weightsInputToHidden = updateWeights(hiddenErrors, hiddenOutputs, inputs);
+  }
+
+  private double[][] updateWeights(double[][] errors, double[][] outputs,
+      double[][] transposedValues) {
+    return DoublesManipulation.multiplyElementByElement(this.learningRate,
+        DoublesManipulation.multiplyMatrix(
+            DoublesManipulation.multiplyElementByElement(errors,
+                outputs,
+                DoublesManipulation.subtractMatrix(1.0, outputs))
+            , DoublesManipulation.transpose(transposedValues)));
   }
 
   private double[][] transportToArray(List<Double> inputs_list) {
     double[] inputsOneDimensionalArray = changeFromListToArrayForDouble(inputs_list);
-
     return structureWeightsTo2dimensional(inputsOneDimensionalArray.length, 1,
         inputsOneDimensionalArray);
   }
