@@ -55,18 +55,25 @@ public class NeuralNetwork {
   }
 
   public double[][] query(List<Double> inputs_list) {
-    double[][] inputs = transportArray(inputs_list);
+    double[][] inputs = transportToArray(inputs_list);
     double[][] hiddenInputs = Calculator.multiplyMatrix(this.weightsInputToHidden, inputs);
     double[][] hiddenOutputs = Calculator.sigmoid(hiddenInputs);
-    double[][] finalOutputs = Calculator.multiplyMatrix(this.weightsHiddenToOutput, hiddenOutputs);
-    return Calculator.sigmoid(finalOutputs);
+    double[][] finalInputs = Calculator.multiplyMatrix(this.weightsHiddenToOutput, hiddenOutputs);
+    return Calculator.sigmoid(finalInputs);
   }
 
-  public void train() {
-
+  public void train(List<Double> inputsList, List<Double> targetList) {
+    double[][] inputs = transportToArray(inputsList);
+    double[][] hiddenInputs = Calculator.multiplyMatrix(this.weightsInputToHidden, inputs);
+    double[][] hiddenOutputs = Calculator.sigmoid(hiddenInputs);
+    double[][] finalInputs = Calculator.multiplyMatrix(this.weightsHiddenToOutput, hiddenOutputs);
+    double[][] finalOutputs = Calculator.sigmoid(finalInputs);
+    double[][] targets = transportToArray(targetList);
+    double[][] outputErrors = Calculator.subtractMatrix(targets, finalOutputs);
+    double[][] hiddenErrors = Calculator.sigmoid(outputErrors);
   }
 
-  private double[][] transportArray(List<Double> inputs_list) {
+  private double[][] transportToArray(List<Double> inputs_list) {
     double[] inputsOneDimensionalArray = changeFromListToArrayForDouble(inputs_list);
 
     return structureWeightsTo2dimensional(inputsOneDimensionalArray.length, 1,

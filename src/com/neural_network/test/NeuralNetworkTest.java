@@ -53,4 +53,16 @@ class NeuralNetworkTest {
         .forEach(x -> Arrays.stream(x)
             .forEach(y -> System.out.println(y + " ")));
   }
+
+  @Test
+  public void testSubMatrix() {
+    Assertions.assertArrayEquals(new double[][]{{1, -1, 3},
+                                                {-1, 0, 2}},
+                                  Calculator.subtractMatrix(
+                                      new double[][]{{3, 4, 4},
+                                                     {5, 4, 6}},
+                                      new double[][]{{2, 5, 1},
+                                                     {6, 4, 4}}
+                                  ));
+  }
 }

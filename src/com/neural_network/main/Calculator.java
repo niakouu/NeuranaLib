@@ -11,22 +11,32 @@ public abstract class Calculator {
     return arr;
   }
 
-  private static double sigmoidForEach(double x) {
-    return 1 / (1 + Math.pow(Math.E, -1 * x));
-  }
-
-  public static double[][] multiplyMatrix(double[][] weights, double[][] input) {
-    int rows = weights.length;
-    int columns = input[0].length;
+  public static double[][] multiplyMatrix(double[][] arr1, double[][] arr2) {
+    int rows = arr1.length;
+    int columns = arr2[0].length;
 
     double[][] result = new double[rows][columns];
     for (int i = 0; i < result.length; i++) {
       int counterColumns = 0;
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = multiplyRowByColumn(weights[i], input, counterColumns++);
+        result[i][j] = multiplyRowByColumn(arr1[i], arr2, counterColumns++);
       }
     }
     return result;
+  }
+
+  public static double[][] subtractMatrix(double[][] minuend, double[][] subtrahend) {
+    double[][] result = new double[minuend.length][minuend[0].length];
+    for (int i = 0; i < result.length; i++) {
+      for (int j = 0; j < result[i].length; j++) {
+        result[i][j] = minuend[i][j] - subtrahend[i][j];
+      }
+    }
+    return result;
+  }
+
+  private static double sigmoidForEach(double x) {
+    return 1 / (1 + Math.pow(Math.E, -1 * x));
   }
 
   private static double multiplyRowByColumn(double[] row, double[][] input, int column) {
