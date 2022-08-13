@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Train made, now Test">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Data ready">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machineLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/machineLearning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/DoublesManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/DoublesManipulation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,33 +48,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Libraries/jfreechart-demo-1.5.2-jar-with-dependencies.jar&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;web.server&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\edeli\Computer_Sciences\CleanCode\machineLearning\mnist_dataset" />
@@ -78,16 +88,18 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest.testDataset">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.neural_network.main.Main" />
+  <component name="RunManager" selected="JUnit.NeuralNetworkTest">
+    <configuration name="NeuralNetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.neural_network.main.*" />
+          <option name="PATTERN" value="com.neural_network.test.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="com.neural_network.test" />
+      <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkTest.testQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetworkTest.testDatasetHeaders" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
         <pattern>
@@ -118,13 +130,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.neural_network.test" />
       <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="testQuery" />
+      <option name="METHOD_NAME" value="testDatasetHeaders" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkTest.testSubMatrix" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetworkTest.testDatasetInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
         <pattern>
@@ -134,13 +146,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.neural_network.test" />
       <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="testSubMatrix" />
+      <option name="METHOD_NAME" value="testDatasetInputs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NeuralNetworkTest.testTranspose" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NeuralNetworkTest.testDatasetReshapedInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
         <pattern>
@@ -150,7 +162,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.neural_network.test" />
       <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="testTranspose" />
+      <option name="METHOD_NAME" value="testDatasetReshapedInputs" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,10 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NeuralNetworkTest" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testDatasetReshapedInputs" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testDatasetHeaders" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testDatasetInputs" />
         <item itemvalue="JUnit.NeuralNetworkTest.testDataset" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testTranspose" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testSubMatrix" />
       </list>
     </recent_temporary>
   </component>
@@ -187,7 +200,11 @@
       <workItem from="1660101661771" duration="96000" />
       <workItem from="1660101769012" duration="1436000" />
       <workItem from="1660156911000" duration="50373000" />
-      <workItem from="1660343257125" duration="650000" />
+      <workItem from="1660343257125" duration="3663000" />
+      <workItem from="1660349092947" duration="27000" />
+      <workItem from="1660349358956" duration="192000" />
+      <workItem from="1660350802660" duration="2400000" />
+      <workItem from="1660365823909" duration="10054000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -252,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660343225949</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Adding csv files">
+      <created>1660343929056</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1660343929056</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -278,7 +302,9 @@
     <MESSAGE value="Query test passed" />
     <MESSAGE value="Working on train the network" />
     <MESSAGE value="Train made, now Test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Train made, now Test" />
+    <MESSAGE value="Adding csv files" />
+    <MESSAGE value="Data ready" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data ready" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -287,6 +313,11 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/neural_network/main/Dataset.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

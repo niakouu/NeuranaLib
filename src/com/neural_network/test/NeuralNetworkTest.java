@@ -4,7 +4,7 @@ import com.neural_network.main.Dataset;
 import com.neural_network.main.DoublesManipulation;
 import com.neural_network.main.NeuralNetwork;
 import java.util.Arrays;
-import javax.xml.crypto.Data;
+import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -80,7 +80,7 @@ class NeuralNetworkTest {
   }
 
   @Test
-  public void testDataset() {
+  public void testDatasetInputs() {
     double[][] data = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getInputs();
     for(double[] i : data) {
       for (double j : i) {
@@ -88,5 +88,28 @@ class NeuralNetworkTest {
       }
       System.out.println();
     }
+  }
+
+  @Test
+  public void testDatasetHeaders() {
+    List<Double> d = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getHeaders();
+    System.out.println(d);
+    assertEquals(100, d.size());
+  }
+
+  @Test
+  public void testDatasetReshapedInputs() {
+    double[][][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getReshapedInputs();
+    for(double[][] input : inputs) {
+      for (double[] row : input) {
+        System.out.print("{ ");
+        for (double num : row ){
+          System.out.print(num + " ");
+        }
+        System.out.println("}");
+      }
+      System.out.println();
+    }
+    assertEquals(100, inputs.length);
   }
 }

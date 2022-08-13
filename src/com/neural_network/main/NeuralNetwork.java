@@ -89,7 +89,7 @@ public class NeuralNetwork {
 
   private double[][] transportToArray(List<Double> inputs_list) {
     double[] inputsOneDimensionalArray = changeFromListToArrayForDouble(inputs_list);
-    return structureWeightsTo2dimensional(inputsOneDimensionalArray.length, 1,
+    return DoublesManipulation.structure1dimensionalTo2dimensional(inputsOneDimensionalArray.length, 1,
         inputsOneDimensionalArray);
   }
 
@@ -98,28 +98,10 @@ public class NeuralNetwork {
   }
 
   private void generateLinkWeights() {
-    this.weightsInputToHidden = structureWeightsTo2dimensional(this.inputNodes, this.hiddenNodes,
+    this.weightsInputToHidden = DoublesManipulation.structure1dimensionalTo2dimensional(this.inputNodes, this.hiddenNodes,
         addNegativeNumbersForWeights(generateRandomizeWeights(this.inputNodes, this.hiddenNodes)));
-    this.weightsHiddenToOutput = structureWeightsTo2dimensional(this.hiddenNodes, this.outputNodes,
+    this.weightsHiddenToOutput = DoublesManipulation.structure1dimensionalTo2dimensional(this.hiddenNodes, this.outputNodes,
         addNegativeNumbersForWeights(generateRandomizeWeights(this.hiddenNodes, this.outputNodes)));
-  }
-
-  private double[][] structureWeightsTo2dimensional(int columns, int rows,
-      double[] oneDimensional) {
-    double[][] weights = new double[columns][rows];
-    int counterColumns = 0;
-    int counterRows = 0;
-    for (double weight : oneDimensional) {
-      if (counterColumns == columns && counterRows == rows) {
-        return weights;
-      } else if (counterRows == rows) {
-        counterRows = 0;
-        weights[++counterColumns][counterRows++] = weight;
-      } else {
-        weights[counterColumns][counterRows++] = weight;
-      }
-    }
-    return weights;
   }
 
   private double[] addNegativeNumbersForWeights(double[] weights) {

@@ -75,10 +75,33 @@ public abstract class DoublesManipulation {
     double[][] result = new double[subtrahend.length][subtrahend[0].length];
     for (int i = 0; i < result.length; ++i) {
       for (int j = 0; j < result[i].length; ++j) {
-        result[i][j] = 1.0 - subtrahend[i][j];
+        result[i][j] = minuend - subtrahend[i][j];
       }
     }
     return result;
+  }
+
+  public static double[][] structure1dimensionalTo2dimensional(int columns, int rows,
+      double[] oneDimensional) {
+    double[][] weights = new double[columns][rows];
+    try{
+      int counterColumns = 0;
+      int counterRows = 0;
+      for (double weight : oneDimensional) {
+        if (counterColumns == columns && counterRows == rows) {
+          return weights;
+        } else if (counterRows == rows) {
+          counterRows = 0;
+          weights[++counterColumns][counterRows++] = weight;
+        } else {
+          weights[counterColumns][counterRows++] = weight;
+        }
+      }
+    }catch (IndexOutOfBoundsException e) {
+      return weights;
+    }
+
+    return weights;
   }
 
   private static double sigmoidForEach(double x) {
@@ -88,10 +111,7 @@ public abstract class DoublesManipulation {
   private static double multiplyRowByColumn(double[] row, double[][] input, int column) {
     double total = 0.0;
     int counterColumnForRow = 0;
-    double[][] result = input;
-    int size = input.length;
-    for (int i = 0; i < size; ++i) {
-      double[] inputRow = result[i];
+    for (double[] inputRow : input) {
       total += inputRow[column] * row[counterColumnForRow++];
     }
     return total;
