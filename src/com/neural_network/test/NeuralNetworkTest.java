@@ -105,6 +105,7 @@ class NeuralNetworkTest {
         System.out.print("{ ");
         for (double num : row ){
           System.out.print(num + " ");
+          assertTrue(num < 1.0 && num >= (double) 0);
         }
         System.out.println("}");
       }

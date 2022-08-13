@@ -39,8 +39,15 @@ public class Dataset {
     int counter = 0;
     for (double[] input : this.inputs) {
       this.headers.add(input[0]);
+      scaleInput(input);
       this.reshapedInputs[counter++] = DoublesManipulation.structure1dimensionalTo2dimensional(
           columnsRowsSize, columnsRowsSize, Arrays.copyOfRange(input, 1, input.length));
+    }
+  }
+
+  private void scaleInput(double[] inputs) {
+    for (int i = 0; i < inputs.length; i++) {
+      inputs[i] = (inputs[i]/255.5 * 0.99) + 0.01;
     }
   }
 

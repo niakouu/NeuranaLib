@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Data ready">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Data ranging from 0.1 to 0.99">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machineLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/machineLearning.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/DoublesManipulation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/DoublesManipulation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -88,7 +84,7 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest">
+  <component name="RunManager" selected="JUnit.NeuralNetworkTest.testDatasetReshapedInputs">
     <configuration name="NeuralNetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
@@ -170,10 +166,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NeuralNetworkTest" />
         <item itemvalue="JUnit.NeuralNetworkTest.testDatasetReshapedInputs" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testDatasetHeaders" />
         <item itemvalue="JUnit.NeuralNetworkTest.testDatasetInputs" />
+        <item itemvalue="JUnit.NeuralNetworkTest" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testDatasetHeaders" />
         <item itemvalue="JUnit.NeuralNetworkTest.testDataset" />
       </list>
     </recent_temporary>
@@ -204,7 +200,7 @@
       <workItem from="1660349092947" duration="27000" />
       <workItem from="1660349358956" duration="192000" />
       <workItem from="1660350802660" duration="2400000" />
-      <workItem from="1660365823909" duration="10054000" />
+      <workItem from="1660365823909" duration="12694000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -276,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660343929056</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Data ready">
+      <created>1660415371732</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1660415371732</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -304,7 +307,8 @@
     <MESSAGE value="Train made, now Test" />
     <MESSAGE value="Adding csv files" />
     <MESSAGE value="Data ready" />
-    <option name="LAST_COMMIT_MESSAGE" value="Data ready" />
+    <MESSAGE value="Data ranging from 0.1 to 0.99" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data ranging from 0.1 to 0.99" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
