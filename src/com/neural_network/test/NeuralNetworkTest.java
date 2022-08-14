@@ -2,6 +2,7 @@ package com.neural_network.test;
 
 import com.neural_network.main.Dataset;
 import com.neural_network.main.DoublesManipulation;
+import com.neural_network.main.Matrix;
 import com.neural_network.main.NeuralNetwork;
 import java.util.Arrays;
 import java.util.List;
@@ -42,16 +43,16 @@ class NeuralNetworkTest {
     double[][] arr1 = {{1, 2, 3}, {4, 5, 6}};
     double[][] arr2 = {{7, 8}, {9, 10}, {11, 12}};
     Assertions.assertArrayEquals(new double[][]{{58, 64}, {139, 154}},
-        DoublesManipulation.multiplyMatrix(arr1, arr2));
+        DoublesManipulation.multiplyMatrix(new Matrix(arr1), new Matrix(arr2)));
     double[][] ar1 = {{1, 2}, {3, 4}};
     double[][] ar2 = {{5, 6}, {7, 8}};
     Assertions.assertArrayEquals(new double[][]{{19, 22}, {43, 50}},
-        DoublesManipulation.multiplyMatrix(ar1, ar2));
+        DoublesManipulation.multiplyMatrix(new Matrix(ar1), new Matrix(ar2)));
   }
 
   @Test
   public void testQuery() {
-    double[][] d = new NeuralNetwork().query(Arrays.asList(2.0, 9.0, 5.0));
+    double[][] d = new NeuralNetwork().query(new double[][]{{2.0}, {9.0}, {5.0}});
     Arrays.stream(d)
         .forEach(x -> Arrays.stream(x)
             .forEach(y -> System.out.println(y + " ")));
@@ -76,7 +77,8 @@ class NeuralNetworkTest {
 
   @Test
   public void testTrain() {
-
+    NeuralNetwork n = new NeuralNetwork(784, 100, 10);
+    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 785));
   }
 
   @Test
@@ -99,9 +101,8 @@ class NeuralNetworkTest {
 
   @Test
   public void testDatasetReshapedInputs() {
-    double[][][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getReshapedInputs();
-    for(double[][] input : inputs) {
-      for (double[] row : input) {
+    double[][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getReshapedInputs();
+      for (double[] row : inputs) {
         System.out.print("{ ");
         for (double num : row ){
           System.out.print(num + " ");
@@ -109,8 +110,6 @@ class NeuralNetworkTest {
         }
         System.out.println("}");
       }
-      System.out.println();
-    }
     assertEquals(100, inputs.length);
   }
 }

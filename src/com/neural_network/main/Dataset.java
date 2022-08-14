@@ -11,7 +11,7 @@ public class Dataset {
 
   private final double[][] inputs;
   private final List<Double> headers;
-  private double[][][] reshapedInputs;
+  private double[][] reshapedInputs;
   private final int sizeOfaData;
 
   public Dataset(String directory, int sizeOfData) {
@@ -29,19 +29,17 @@ public class Dataset {
     return this.headers;
   }
 
-  public double[][][] getReshapedInputs() {
+  public double[][] getReshapedInputs() {
     return this.reshapedInputs;
   }
 
   private void reshape() {
-    int columnsRowsSize = (int) Math.sqrt(this.sizeOfaData - 1);
-    this.reshapedInputs = new double[this.inputs.length][columnsRowsSize][columnsRowsSize];
+    this.reshapedInputs = new double[this.inputs.length][this.inputs[0].length];
     int counter = 0;
     for (double[] input : this.inputs) {
       this.headers.add(input[0]);
       scaleInput(input);
-      this.reshapedInputs[counter++] = DoublesManipulation.structure1dimensionalTo2dimensional(
-          columnsRowsSize, columnsRowsSize, Arrays.copyOfRange(input, 1, input.length));
+      this.reshapedInputs[counter++] = Arrays.copyOfRange(input, 1, input.length);
     }
   }
 
