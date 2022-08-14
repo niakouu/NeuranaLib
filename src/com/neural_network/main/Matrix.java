@@ -1,5 +1,8 @@
 package com.neural_network.main;
 
+import java.util.Arrays;
+import java.util.stream.Stream;
+
 public class Matrix {
 
   private final int column;
@@ -28,5 +31,15 @@ public class Matrix {
 
   public double[] getFirstRow() {
     return this.firstRow;
+  }
+
+  public void printMatrix() {
+    for (double[] rows : this.inputs) {
+      System.out.print("{ ");
+      for (double data : rows) {
+        System.out.print(data + " ");
+      }
+      System.out.println("}");
+    }
   }
 }

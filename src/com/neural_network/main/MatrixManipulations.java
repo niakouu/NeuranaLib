@@ -101,7 +101,7 @@ public abstract class MatrixManipulations {
   }
 
   private static Matrix[] makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(Matrix m1, Matrix m2) {
-    if (twoSidesAreSimilar(m1, m2) && m1.getColumn() == m1.getRows()) {
+    if (twoSidesAreSimilar(m1, m2) && m2.getColumn() == m1.getRows()) {
       return new Matrix[]{m1, m2};
     } else if (twoSidesAreSimilar(m1, m2) && m1.getColumn() == m2.getColumn()) {
       return new Matrix[]{m1, transpose(m2)};

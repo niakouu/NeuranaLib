@@ -1,13 +1,15 @@
 package com.neural_network.main;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class NeuralNetwork {
 
   private static final int DEFAULT_NODES = 3;
   private static final float DEFAULT_LEARNING_RATE = 0.3f;
-  private final static double INITIAL_VALUE_FOR_TARGETS = 0.1;
+  private final static double INITIAL_VALUE_FOR_TARGETS = 0.01;
 
   private final int inputNodes;
   private final int hiddenNodes;
@@ -55,7 +57,30 @@ public class NeuralNetwork {
         + outputNodes + "; learning rate = " + learningRate;
   }
 
-  public Matrix query(Matrix inputs) {
+  public List<Matrix> query(Dataset inputs) {
+    List<Matrix> outputs = new ArrayList<>();
+    for (double[] reshapedInputs : inputs.getReshapedInputsMatrix().getInputs()) {
+      Matrix input = MatrixManipulations.structure1dimensionalTo2dimensional(1,
+          reshapedInputs.length, reshapedInputs);
+      Matrix output = getFinalOutput(input);
+      outputs.add(output);
+    }
+    return outputs;
+  }
+
+  public void trainData(Dataset data) {
+    int counter = 0;
+    for (double[] reshapedInputs : data.getReshapedInputsMatrix().getInputs()) {
+      Matrix inputs = MatrixManipulations.structure1dimensionalTo2dimensional(1,
+          reshapedInputs.length, reshapedInputs);
+      double targetValue = data.getHeaders().get(counter++);
+      int target = (int) targetValue;
+      Matrix targets = initialTargetsValues(this.outputNodes, target);
+      train(inputs, targets);
+    }
+  }
+
+  private Matrix getFinalOutput(Matrix inputs) {
     Matrix hiddenInputs = MatrixManipulations.multiplyMatrix(this.weightsInputToHidden, inputs);
     Matrix hiddenOutputs = MatrixManipulations.sigmoid(hiddenInputs);
     Matrix finalInputs = MatrixManipulations.multiplyMatrix(this.weightsHiddenToOutput,
@@ -63,18 +88,10 @@ public class NeuralNetwork {
     return MatrixManipulations.sigmoid(finalInputs);
   }
 
-  public void trainData(Dataset data) {
-    Matrix targets = initialTargetsValues(this.outputNodes);
-    for (double[] reshapedInputs : data.getReshapedInputsMatrix().getInputs()) {
-      Matrix inputs = MatrixManipulations.structure1dimensionalTo2dimensional(1,
-          reshapedInputs.length, reshapedInputs);
-      train(inputs, targets);
-    }
-  }
-
-  private Matrix initialTargetsValues(int length) {
+  private Matrix initialTargetsValues(int length, int target) {
     double[] result = new double[length];
     Arrays.fill(result, INITIAL_VALUE_FOR_TARGETS);
+    result[target] = 0.99;
     return MatrixManipulations.structure1dimensionalTo2dimensional(this.outputNodes, 1, result);
   }
 

@@ -4,7 +4,6 @@ import com.neural_network.main.Dataset;
 import com.neural_network.main.MatrixManipulations;
 import com.neural_network.main.Matrix;
 import com.neural_network.main.NeuralNetwork;
-import java.util.Arrays;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -52,10 +51,10 @@ class NeuralNetworkTest {
 
   @Test
   public void testQuery() {
-    Matrix d = new NeuralNetwork().query(new Matrix(new double[][]{{2.0}, {9.0}, {5.0}}));
-    Arrays.stream(d.getInputs())
-        .forEach(x -> Arrays.stream(x)
-            .forEach(y -> System.out.println(y + " ")));
+    NeuralNetwork n = new NeuralNetwork(784, 100, 10);
+    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784));
+    List<Matrix> test = n.query(new Dataset("mnist_dataset/mnist_test_10.csv", 784));
+    test.forEach(x -> x.printMatrix());
   }
 
   @Test
@@ -78,7 +77,7 @@ class NeuralNetworkTest {
   @Test
   public void testTrain() {
     NeuralNetwork n = new NeuralNetwork(784, 100, 10);
-    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 785));
+    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784));
   }
 
   @Test

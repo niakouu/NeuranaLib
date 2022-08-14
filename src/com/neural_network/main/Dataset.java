@@ -10,14 +10,14 @@ import java.util.List;
 public class Dataset {
 
   private final double[][] inputs;
-  private final List<Double> headers;
+  private List<Double> headers;
   private Matrix reshapedInputsMatrix;
   private final int sizeOfaData;
 
   public Dataset(String directory, int sizeOfData) {
     this.sizeOfaData = sizeOfData;
-    this.inputs = getData(directory);
     this.headers = new ArrayList<>();
+    this.inputs = getData(directory);
     reshape();
   }
 
@@ -46,7 +46,7 @@ public class Dataset {
 
   private void scaleInput(double[] inputs) {
     for (int i = 0; i < inputs.length; i++) {
-      inputs[i] = (inputs[i]/255.5 * 0.99) + 0.01;
+      inputs[i] = (inputs[i] / 255.5 * 0.99) + 0.01;
     }
   }
 
