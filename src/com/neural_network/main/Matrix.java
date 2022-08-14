@@ -39,10 +39,14 @@ public class Matrix {
   }
 
   public Matrix[] makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(Matrix anotherMatrix) {
+    if (twoSidesAreSimilar(anotherMatrix)) {
+      return new Matrix[] {getColumn() > anotherMatrix.getRows() ? anotherMatrix : this,
+          getColumn() > anotherMatrix.getRows() ? this : anotherMatrix};
+    }
     if (anotherMatrix.getColumn() == getRows() && isInsideNumberSmallerThenTheOutside(
         anotherMatrix.getRows(), anotherMatrix.getColumn())) {
-      return new Matrix[] {getColumn() > anotherMatrix.getRows() ? anotherMatrix : this,
-                            getColumn() > anotherMatrix.getRows() ? this : anotherMatrix};
+      return new Matrix[] {getColumn() > anotherMatrix.getRows() ? transpose(this) : transpose(anotherMatrix),
+                            getColumn() > anotherMatrix.getRows() ? transpose(anotherMatrix) : transpose(this)};
 
     } else if (anotherMatrix.getColumn() == getRows() && !isInsideNumberSmallerThenTheOutside(
         anotherMatrix.getRows(), getColumn())) {
@@ -71,8 +75,8 @@ public class Matrix {
 
     } else if (anotherMatrix.getRows() == getRows() && isInsideNumberSmallerThenTheOutside(
         anotherMatrix.getColumn(), getColumn())) {
-      return new Matrix[] {getColumn() > anotherMatrix.getColumn() ? transpose(anotherMatrix) : this,
-          getColumn() > anotherMatrix.getColumn() ? this : transpose(anotherMatrix)};
+      return new Matrix[] {getColumn() > anotherMatrix.getColumn() ? transpose(this) : anotherMatrix,
+          getColumn() > anotherMatrix.getColumn() ? anotherMatrix : transpose(this)};
 
     } else if (anotherMatrix.getRows() == getRows() && !isInsideNumberSmallerThenTheOutside(
         anotherMatrix.getColumn(), getColumn())) {
@@ -82,12 +86,23 @@ public class Matrix {
     return null;
   }
 
-  public boolean isInsideNumberSmallerThenTheOutside(int side1, int side2) {
+  private boolean isInsideNumberSmallerThenTheOutside(int side1, int side2) {
     if (side1 > 1 || side2 > 1) {
       return true;
     }
     return false;
   }
+
+  private boolean twoSidesAreSimilar(Matrix anotherMatrix) {
+    if (
+            anotherMatrix.getColumn() == getRows() && anotherMatrix.getRows() == getColumn() ||
+            anotherMatrix.getRows() == getRows() && anotherMatrix.getColumn() == getColumn()
+    ) {
+      return true;
+    }
+    return false;
+  }
+
 
   public Matrix transpose(Matrix matrix) {
     double[][] arr = matrix.getInputs();

@@ -1,8 +1,8 @@
 package com.neural_network.main;
 
-public abstract class DoublesManipulation {
+public abstract class MatrixManipulations {
 
-  public DoublesManipulation() {
+  public MatrixManipulations() {
   }
 
   public static double[][] sigmoid(double[][] arr) {
@@ -74,10 +74,10 @@ public abstract class DoublesManipulation {
 
   public static double[][] multiplyMatrix(Matrix m1, Matrix m2) {
     Matrix[] arr = m1.makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(m2);
-    int column = arr[1].getColumn();
     int rows = arr[0].getRows();
-    double[][] moreRows = arr[1].getInputs();
+    int column = arr[1].getColumn();
     double[][] lessRows = arr[0].getInputs();
+    double[][] moreRows = arr[1].getInputs();
     double[][] result = new double[rows][column];
     for (int i = 0; i < result.length; i++) {
       int counterColumns = 0;

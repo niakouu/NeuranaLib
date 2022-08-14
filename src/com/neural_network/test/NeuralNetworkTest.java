@@ -1,7 +1,7 @@
 package com.neural_network.test;
 
 import com.neural_network.main.Dataset;
-import com.neural_network.main.DoublesManipulation;
+import com.neural_network.main.MatrixManipulations;
 import com.neural_network.main.Matrix;
 import com.neural_network.main.NeuralNetwork;
 import java.util.Arrays;
@@ -43,11 +43,11 @@ class NeuralNetworkTest {
     double[][] arr1 = {{1, 2, 3}, {4, 5, 6}};
     double[][] arr2 = {{7, 8}, {9, 10}, {11, 12}};
     Assertions.assertArrayEquals(new double[][]{{58, 64}, {139, 154}},
-        DoublesManipulation.multiplyMatrix(new Matrix(arr1), new Matrix(arr2)));
+        MatrixManipulations.multiplyMatrix(new Matrix(arr1), new Matrix(arr2)));
     double[][] ar1 = {{1, 2}, {3, 4}};
     double[][] ar2 = {{5, 6}, {7, 8}};
     Assertions.assertArrayEquals(new double[][]{{19, 22}, {43, 50}},
-        DoublesManipulation.multiplyMatrix(new Matrix(ar1), new Matrix(ar2)));
+        MatrixManipulations.multiplyMatrix(new Matrix(ar1), new Matrix(ar2)));
   }
 
   @Test
@@ -61,7 +61,7 @@ class NeuralNetworkTest {
   @Test
   public void testSubMatrix() {
     Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
-        DoublesManipulation.subtractMatrix(
+        MatrixManipulations.subtractMatrix(
             new double[][]{{3, 4, 4}, {5, 4, 6}},
             new double[][]{{2, 5, 1}, {6, 4, 4}}
         ));
@@ -70,7 +70,7 @@ class NeuralNetworkTest {
   @Test
   public void testTranspose() {
     Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
-        DoublesManipulation.transpose(
+        MatrixManipulations.transpose(
             new double[][]{{1, -1}, {-1, 0}, {3, 2}}
         ));
   }
