@@ -2,78 +2,18 @@ package com.neural_network.main;
 
 public abstract class MatrixManipulations {
 
-  public MatrixManipulations() {
-  }
-
-  public static double[][] sigmoid(double[][] arr) {
+  public static Matrix sigmoid(Matrix matrix) {
+    double[][] arr = matrix.getInputs();
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[i].length; j++) {
         arr[i][j] = sigmoidForEach(arr[i][j]);
       }
     }
-    return arr;
+    return new Matrix(arr);
   }
 
-  public static double[][] multiplyMatrix(double[][] arr1, double[][] arr2) {
-    int column = 0;
-    int rows = 0;
-    double[][] moreRows;
-    double[][] lessRows;
-    if (arr1.length > arr2.length && arr2.length == arr1[0].length) {
-      moreRows = arr1;
-      lessRows = arr2;
-      column = moreRows[0].length;
-      rows = lessRows.length;
-    }
-    else if (arr1.length < arr2.length && arr2.length == arr1[0].length) {
-      moreRows = arr2;
-      lessRows = arr1;
-      column = moreRows[0].length;
-      rows = lessRows.length;
-    }
-    else {
-      if (arr1.length == arr2[0].length) {
-        moreRows = arr2;
-        lessRows = arr1;
-        column = moreRows[0].length;
-        rows = lessRows.length;
-      }
-      else if (arr2.length == arr1[0].length) {
-        moreRows = arr1;
-        lessRows = arr2;
-        column = moreRows[0].length;
-        rows = lessRows.length;
-      }
-      else if (arr2[0].length == arr1[0].length) {
-        if (arr2.length < arr1.length) {
-          moreRows = arr2;
-          lessRows = transpose(arr1);
-          column = moreRows[0].length;
-          rows = lessRows.length;
-        }
-        else {
-          moreRows = arr1;
-          lessRows = transpose(arr2);
-          column = moreRows[0].length;
-          rows = lessRows.length;
-        }
-      }
-      else {
-        return null;
-      }
-    }
-    double[][] result = new double[rows][column];
-    for (int i = 0; i < result.length; i++) {
-      int counterColumns = 0;
-      for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = multiplyRowByColumn(lessRows[i], moreRows, counterColumns++);
-      }
-    }
-    return result;
-  }
-
-  public static double[][] multiplyMatrix(Matrix m1, Matrix m2) {
-    Matrix[] arr = m1.makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(m2);
+  public static Matrix multiplyMatrix(Matrix m1, Matrix m2) {
+    Matrix[] arr = makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(m1, m2);
     int rows = arr[0].getRows();
     int column = arr[1].getColumn();
     double[][] lessRows = arr[0].getInputs();
@@ -85,69 +25,68 @@ public abstract class MatrixManipulations {
         result[i][j] = multiplyRowByColumn(lessRows[i], moreRows, counterColumns++);
       }
     }
-    return result;
+    return new Matrix(result);
   }
 
-  public static double[][] multiplyElementByElement(double[][] arr1, double[][] arr2,
-      double[][] arr3) {
-    double[][] result = new double[arr1.length][arr1[0].length];
+  public static Matrix multiplyElementByElement(Matrix arr1, Matrix arr2, Matrix arr3) {
+    double[][] result = new double[arr1.getRows()][arr1.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = arr1[i][j] * arr2[i][j] * arr3[i][j];
+        result[i][j] = arr1.getInputs()[i][j] * arr2.getInputs()[i][j] * arr3.getInputs()[i][j];
       }
     }
-    return result;
+    return new Matrix(result);
   }
 
-  public static double[][] multiplyElementByElement(double num, double[][] arr) {
-    double[][] result = new double[arr.length][arr[0].length];
+  public static Matrix multiplyElementByElement(double num, Matrix arr) {
+    double[][] result = new double[arr.getRows()][arr.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = num * arr[i][j];
+        result[i][j] = num * arr.getInputs()[i][j];
       }
     }
-    return result;
+    return new Matrix(result);
   }
 
-  public static double[][] transpose(double[][] arr) {
-    double[][] result = new double[arr[0].length][arr.length];
-    for (int i = 0; i < arr.length; i++) {
-      for (int j = 0; j < arr[i].length; j++) {
-        result[j][i] = arr[i][j];
+  public static Matrix transpose(Matrix matrix) {
+    double[][] result = new double[matrix.getColumn()][matrix.getRows()];
+    for (int i = 0; i < matrix.getRows(); i++) {
+      for (int j = 0; j < matrix.getColumn(); j++) {
+        result[j][i] = matrix.getInputs()[i][j];
       }
     }
-    return result;
+    return new Matrix(result);
   }
 
-  public static double[][] subtractMatrix(double[][] minuend, double[][] subtrahend) {
-    double[][] result = new double[minuend.length][minuend[0].length];
+  public static Matrix subtractMatrix(Matrix minuend, Matrix subtrahend) {
+    double[][] result = new double[minuend.getRows()][minuend.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = minuend[i][j] - subtrahend[i][j];
+        result[i][j] = minuend.getInputs()[i][j] - subtrahend.getInputs()[i][j];
       }
     }
-    return result;
+    return new Matrix(result);
   }
 
-  public static double[][] subtractMatrix(double minuend, double[][] subtrahend) {
-    double[][] result = new double[subtrahend.length][subtrahend[0].length];
+  public static Matrix subtractMatrix(double minuend, Matrix subtrahend) {
+    double[][] result = new double[subtrahend.getRows()][subtrahend.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = minuend - subtrahend[i][j];
+        result[i][j] = minuend - subtrahend.getInputs()[i][j];
       }
     }
-    return result;
+    return new Matrix(result);
   }
 
-  public static double[][] structure1dimensionalTo2dimensional(int rows, int columns,
+  public static Matrix structure1dimensionalTo2dimensional(int rows, int columns,
       double[] oneDimensional) {
     double[][] weights = new double[rows][columns];
-    try{
+    try {
       int rowsCounter = 0;
       int columnsCounter = 0;
       for (double weight : oneDimensional) {
         if (rowsCounter == rows && columnsCounter == columns) {
-          return weights;
+          return new Matrix(weights);
         } else if (columnsCounter == columns) {
           columnsCounter = 0;
           weights[++rowsCounter][columnsCounter++] = weight;
@@ -155,11 +94,63 @@ public abstract class MatrixManipulations {
           weights[rowsCounter][columnsCounter++] = weight;
         }
       }
-    }catch (IndexOutOfBoundsException e) {
-      return weights;
+    } catch (IndexOutOfBoundsException e) {
+      return new Matrix(weights);
     }
+    return new Matrix(weights);
+  }
 
-    return weights;
+  private static Matrix[] makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(Matrix m1, Matrix m2) {
+    if (twoSidesAreSimilar(m1, m2) && m1.getColumn() == m1.getRows()) {
+      return new Matrix[]{m1, m2};
+    } else if (twoSidesAreSimilar(m1, m2) && m1.getColumn() == m2.getColumn()) {
+      return new Matrix[]{m1, transpose(m2)};
+    } else if (m1.getColumn() == m2.getRows() && isInsideNumberSmallerThenTheOutside(m1.getRows(),
+        m2.getColumn(), m2.getRows())) {
+      return new Matrix[]{m2.getColumn() > m1.getRows() ? transpose(m1) : transpose(m2),
+          m2.getColumn() > m1.getRows() ? transpose(m2) : transpose(m1)};
+    } else if (m1.getColumn() == m2.getRows()) {
+      return new Matrix[]{m2.getColumn() > m1.getRows() ? m1 : m2,
+          m2.getColumn() > m1.getRows() ? m2 : m1};
+
+    } else if (m1.getColumn() == m2.getColumn() && isInsideNumberSmallerThenTheOutside(m1.getRows(),
+        m2.getRows(), m2.getColumn())) {
+      return new Matrix[]{m2.getRows() > m1.getRows() ? m1 : transpose(m2),
+          m2.getRows() > m1.getRows() ? transpose(m2) : m1};
+
+    } else if (m1.getColumn() == m2.getColumn()) {
+      return new Matrix[]{m2.getRows() > m1.getRows() ? transpose(m2) : m1,
+          m2.getRows() > m1.getRows() ? m1 : transpose(m2)};
+
+    } else if (m1.getRows() == m2.getColumn() && isInsideNumberSmallerThenTheOutside(m1.getColumn(),
+        m2.getRows(), m2.getColumn())) {
+      return new Matrix[]{m2.getRows() > m1.getColumn() ? transpose(m2) : transpose(m1),
+          m2.getRows() > m1.getColumn() ? transpose(m1) : transpose(m2)};
+
+    } else if (m1.getRows() == m2.getColumn()) {
+      return new Matrix[]{m2.getRows() > m1.getColumn() ? m1 : m2,
+          m2.getRows() > m1.getColumn() ? m2 : m1};
+
+    } else if (m1.getRows() == m2.getRows() && isInsideNumberSmallerThenTheOutside(m1.getColumn(),
+        m2.getColumn(), m2.getRows())) {
+      return new Matrix[]{m2.getColumn() > m1.getColumn() ? transpose(m2) : transpose(m1),
+          m2.getColumn() > m1.getColumn() ? m1 : m2};
+
+    } else if (m1.getRows() == m2.getRows()) {
+      return new Matrix[]{m2.getColumn() > m1.getColumn() ? m2 : transpose(m1),
+          m2.getColumn() > m1.getColumn() ? transpose(m1) : m2};
+    }
+    return null;
+  }
+
+  private static boolean isInsideNumberSmallerThenTheOutside(int outside1, int outside2,
+      int inside) {
+    return outside1 > inside || outside2 > inside;
+  }
+
+  private static boolean twoSidesAreSimilar(Matrix m1, Matrix m2) {
+    return m1.getColumn() == m2.getRows() && m1.getRows() == m2.getColumn()
+        || m1.getRows() == m2.getRows() && m1.getColumn() == m2.getColumn();
   }
 
   private static double sigmoidForEach(double x) {
@@ -180,5 +171,4 @@ public abstract class MatrixManipulations {
     }
     return total;
   }
-
 }
