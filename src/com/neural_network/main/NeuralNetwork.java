@@ -105,8 +105,10 @@ public class NeuralNetwork {
     Matrix outputErrors = MatrixManipulations.subtractMatrix(targets, finalOutputs);
     Matrix hiddenErrors = MatrixManipulations.multiplyMatrix(this.weightsHiddenToOutput,
         outputErrors);
-    this.weightsInputToHidden = MatrixManipulations.addMatrix(updateWeights(hiddenErrors, hiddenOutputs, inputs), this.weightsInputToHidden);
-    this.weightsHiddenToOutput = MatrixManipulations.addMatrix(updateWeights(outputErrors, finalOutputs, hiddenOutputs), this.weightsHiddenToOutput);
+    this.weightsInputToHidden = MatrixManipulations.addMatrix(
+        updateWeights(hiddenErrors, hiddenOutputs, inputs), this.weightsInputToHidden);
+    this.weightsHiddenToOutput = MatrixManipulations.addMatrix(
+        updateWeights(outputErrors, finalOutputs, hiddenOutputs), this.weightsHiddenToOutput);
   }
 
   private Matrix updateWeights(Matrix errors, Matrix outputs, Matrix transposedValues) {

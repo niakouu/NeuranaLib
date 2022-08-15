@@ -45,7 +45,7 @@ public class Matrix {
     int position = 0;
     for (int i = 0; i < getRows(); i++) {
       for (int j = 0; j < getColumn(); j++) {
-        if (this.data[i][j] > highest){
+        if (this.data[i][j] > highest) {
           highest = this.data[i][j];
           position = j;
         }

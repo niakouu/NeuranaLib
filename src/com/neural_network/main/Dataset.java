@@ -33,10 +33,9 @@ public class Dataset {
     List<Float> scorecard = new ArrayList<>();
     for (int i = 0; i < matrixList.size(); i++) {
       int label = matrixList.get(i).getHighestValuePosition();
-      if (label == this.headers.get(i)){
+      if (label == this.headers.get(i)) {
         scorecard.add(1.0f);
-      }
-      else {
+      } else {
         scorecard.add(0.0f);
       }
     }

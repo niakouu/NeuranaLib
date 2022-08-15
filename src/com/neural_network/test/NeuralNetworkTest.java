@@ -58,18 +58,15 @@ class NeuralNetworkTest {
   @Test
   public void testSubMatrix() {
     Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
-        MatrixManipulations.subtractMatrix(
-            new Matrix(new double[][]{{3, 4, 4}, {5, 4, 6}}),
-            new Matrix(new double[][]{{2, 5, 1}, {6, 4, 4}}
-        )).getData());
+        MatrixManipulations.subtractMatrix(new Matrix(new double[][]{{3, 4, 4}, {5, 4, 6}}),
+            new Matrix(new double[][]{{2, 5, 1}, {6, 4, 4}})).getData());
   }
 
   @Test
   public void testTranspose() {
     Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
-        MatrixManipulations.transpose(
-            new Matrix(new double[][]{{1, -1}, {-1, 0}, {3, 2}})
-        ).getData());
+        MatrixManipulations.transpose(new Matrix(new double[][]{{1, -1}, {-1, 0}, {3, 2}}))
+            .getData());
   }
 
   @Test
@@ -81,7 +78,7 @@ class NeuralNetworkTest {
   @Test
   public void testDatasetInputs() {
     double[][] data = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getInputs();
-    for(double[] i : data) {
+    for (double[] i : data) {
       for (double j : i) {
         System.out.print(j);
       }
@@ -98,15 +95,16 @@ class NeuralNetworkTest {
 
   @Test
   public void testDatasetReshapedInputs() {
-    double[][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getReshapedInputsMatrix().getData();
-      for (double[] row : inputs) {
-        System.out.print("{ ");
-        for (double num : row ){
-          System.out.print(num + " ");
-          assertTrue(num < 1.0 && num >= (double) 0);
-        }
-        System.out.println("}");
+    double[][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv",
+        785).getReshapedInputsMatrix().getData();
+    for (double[] row : inputs) {
+      System.out.print("{ ");
+      for (double num : row) {
+        System.out.print(num + " ");
+        assertTrue(num < 1.0 && num >= (double) 0);
       }
+      System.out.println("}");
+    }
     assertEquals(100, inputs.length);
   }
 }
