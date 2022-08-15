@@ -5,28 +5,28 @@ import java.util.*;
 
 public class Dataset {
 
-  private final double[][] inputs;
-  private final List<Double> headers;
-  private Matrix reshapedInputsMatrix;
+  private final double[][] rawData;
+  private final List<Integer> headers;
+  private Matrix inputs;
   private final int sizeOfaData;
 
   public Dataset(String directory, int sizeOfData) {
     this.sizeOfaData = sizeOfData;
     this.headers = new ArrayList<>();
-    this.inputs = getData(directory);
+    this.rawData = getData(directory);
     reshape();
   }
 
-  public double[][] getInputs() {
-    return this.inputs;
+  public double[][] getRawData() {
+    return this.rawData;
   }
 
-  public List<Double> getHeaders() {
+  public List<Integer> getHeaders() {
     return this.headers;
   }
 
-  public Matrix getReshapedInputsMatrix() {
-    return this.reshapedInputsMatrix;
+  public Matrix getInputs() {
+    return this.inputs;
   }
 
   public float appendCorrectOrIncorrect(List<Matrix> matrixList) {
@@ -42,6 +42,10 @@ public class Dataset {
     return calculatePerformance(scorecard);
   }
 
+  public double[][] getInputData() {
+    return this.inputs.getData();
+  }
+
   private float calculatePerformance(List<Float> scorecard) {
     float total = 0;
     for (Float score : scorecard) {
@@ -51,14 +55,14 @@ public class Dataset {
   }
 
   private void reshape() {
-    double[][] reshapedInputsArray = new double[this.inputs.length][this.inputs[0].length];
+    double[][] reshapedInputsArray = new double[this.rawData.length][this.rawData[0].length];
     int counter = 0;
-    for (double[] input : this.inputs) {
-      this.headers.add(input[0]);
+    for (double[] input : this.rawData) {
+      this.headers.add((int) input[0]);
       scaleInput(input);
       reshapedInputsArray[counter++] = Arrays.copyOfRange(input, 1, input.length);
     }
-    this.reshapedInputsMatrix = new Matrix(reshapedInputsArray);
+    this.inputs = new Matrix(reshapedInputsArray);
   }
 
   private void scaleInput(double[] inputs) {

@@ -54,12 +54,11 @@ public class NeuralNetwork {
         + outputNodes + "; learning rate = " + learningRate;
   }
 
-  public List<Matrix> query(Dataset inputs) {
+  public List<Matrix> query(Dataset data) {
     List<Matrix> outputs = new ArrayList<>();
-    for (double[] reshapedInputs : inputs.getReshapedInputsMatrix().getData()) {
-      Matrix input = MatrixManipulations.structure1dimensionalTo2dimensional(1,
-          reshapedInputs.length, reshapedInputs);
-      Matrix output = getFinalOutput(input);
+    for (double[] input : data.getInputData()) {
+      Matrix inputs = getReformedInput(input);
+      Matrix output = getFinalOutput(inputs);
       outputs.add(output);
     }
     return outputs;
@@ -68,63 +67,66 @@ public class NeuralNetwork {
   public void trainData(Dataset data, int epochs) {
     for (int i = 0; i < epochs; i++) {
       int counter = 0;
-      for (double[] reshapedInputs : data.getReshapedInputsMatrix().getData()) {
-        Matrix inputs = MatrixManipulations.structure1dimensionalTo2dimensional(1,
-            reshapedInputs.length, reshapedInputs);
-        double targetValue = data.getHeaders().get(counter++);
-        int target = (int) targetValue;
+      for (double[] input : data.getInputs().getData()) {
+        Matrix inputs = getReformedInput(input);
+        int target = data.getHeaders().get(counter++);
         Matrix targets = initialTargetsValues(this.outputNodes, target);
-        train(inputs, targets);
+        rescaleWeight(inputs, targets);
       }
     }
   }
 
+  private Matrix getReformedInput(double[] input) {
+    return MatrixManipulations.transformToMatrix(1, input.length, input);
+  }
+
   private Matrix getFinalOutput(Matrix inputs) {
-    Matrix hiddenInputs = MatrixManipulations.multiplyMatrix(this.weightsInputToHidden, inputs);
-    Matrix hiddenOutputs = MatrixManipulations.sigmoid(hiddenInputs);
-    Matrix finalInputs = MatrixManipulations.multiplyMatrix(this.weightsHiddenToOutput,
-        hiddenOutputs);
-    return MatrixManipulations.sigmoid(finalInputs);
+    NeuralNetworkHiddenElements neural = new NeuralNetworkHiddenElements(inputs, this);
+    return neural.getFinalOutputs();
   }
 
   private Matrix initialTargetsValues(int length, int target) {
     double[] result = new double[length];
     Arrays.fill(result, INITIAL_VALUE_FOR_TARGETS);
     result[target] = 0.99;
-    return MatrixManipulations.structure1dimensionalTo2dimensional(this.outputNodes, 1, result);
+    return MatrixManipulations.transformToMatrix(this.outputNodes, 1, result);
   }
 
-  private void train(Matrix inputs, Matrix targets) {
-    Matrix hiddenInputs = MatrixManipulations.multiplyMatrix(inputs, this.weightsInputToHidden);
-    Matrix hiddenOutputs = MatrixManipulations.sigmoid(hiddenInputs);
-    Matrix finalInputs = MatrixManipulations.multiplyMatrix(hiddenOutputs,
-        this.weightsHiddenToOutput);
-    Matrix finalOutputs = MatrixManipulations.sigmoid(finalInputs);
-    finalOutputs = MatrixManipulations.structure1dimensionalTo2dimensional(finalOutputs.getColumn(),
-        1, finalOutputs.getFirstRow());
-    Matrix outputErrors = MatrixManipulations.subtractMatrix(targets, finalOutputs);
-    Matrix hiddenErrors = MatrixManipulations.multiplyMatrix(this.weightsHiddenToOutput,
-        outputErrors);
+  private void rescaleWeight(Matrix inputs, Matrix targets) {
+    NeuralNetworkHiddenElements components = new NeuralNetworkHiddenElements(inputs, targets, this);
     this.weightsInputToHidden = MatrixManipulations.addMatrix(
-        updateWeights(hiddenErrors, hiddenOutputs, inputs), this.weightsInputToHidden);
+        rescaleWeight(components.getHiddenErrors(), components.getHiddenOutputs(), inputs),
+        this.weightsInputToHidden);
     this.weightsHiddenToOutput = MatrixManipulations.addMatrix(
-        updateWeights(outputErrors, finalOutputs, hiddenOutputs), this.weightsHiddenToOutput);
+        rescaleWeight(components.getOutputErrors(), components.getFinalOutputs(),
+            components.getHiddenOutputs()), this.weightsHiddenToOutput);
   }
 
-  private Matrix updateWeights(Matrix errors, Matrix outputs, Matrix transposedValues) {
+  private Matrix rescaleWeight(Matrix errors, Matrix outputs, Matrix layerInBetween) {
     return MatrixManipulations.multiplyElementByElement(this.learningRate,
-        MatrixManipulations.multiplyMatrix(transposedValues,
-            MatrixManipulations.multiplyElementByElement(errors, outputs,
-                MatrixManipulations.subtractMatrix(1.0, outputs))));
+        getWeightsError(errors, outputs, layerInBetween));
+  }
+
+  private Matrix getWeightsError(Matrix errors, Matrix outputs, Matrix layerInBetween) {
+    return MatrixManipulations.multiplyMatrix(layerInBetween, getSigmoidWeight(errors, outputs));
+  }
+
+  private Matrix getSigmoidWeight(Matrix errors, Matrix outputs) {
+    return MatrixManipulations.multiplyElementByElement(errors, outputs,
+        getDifferenceWithTargetWeight(outputs));
+  }
+
+  private Matrix getDifferenceWithTargetWeight(Matrix outputs) {
+    return MatrixManipulations.subtractMatrix(1.0, outputs);
   }
 
   private void generateLinkWeights() {
-    this.weightsInputToHidden = MatrixManipulations.structure1dimensionalTo2dimensional(
-        this.inputNodes, this.hiddenNodes,
-        addNegativeNumbersForWeights(generateRandomizeWeights(this.inputNodes, this.hiddenNodes)));
-    this.weightsHiddenToOutput = MatrixManipulations.structure1dimensionalTo2dimensional(
-        this.hiddenNodes, this.outputNodes,
-        addNegativeNumbersForWeights(generateRandomizeWeights(this.hiddenNodes, this.outputNodes)));
+    this.weightsInputToHidden = MatrixManipulations.transformToMatrix(this.inputNodes,
+        this.hiddenNodes,
+        addNegativeNumbersForWeights(generateRandomizedWeights(this.inputNodes, this.hiddenNodes)));
+    this.weightsHiddenToOutput = MatrixManipulations.transformToMatrix(this.hiddenNodes,
+        this.outputNodes,
+        addNegativeNumbersForWeights(generateRandomizedWeights(this.hiddenNodes, this.outputNodes)));
   }
 
   private double[] addNegativeNumbersForWeights(double[] weights) {
@@ -134,7 +136,7 @@ public class NeuralNetwork {
     return weights;
   }
 
-  private double[] generateRandomizeWeights(int node1, int node2) {
+  private double[] generateRandomizedWeights(int node1, int node2) {
     return new Random().doubles((long) node1 * node2).toArray();
   }
 }

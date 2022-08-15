@@ -3,7 +3,6 @@ package com.neural_network.test;
 import com.neural_network.main.*;
 import org.junit.jupiter.api.*;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class NeuralNetworkTest {
@@ -48,10 +47,17 @@ class NeuralNetworkTest {
   @Test
   public void testQuery() {
     NeuralNetwork n = new NeuralNetwork(784, 100, 10);
-    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784), 1);
+    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784), 10);
     Dataset d = new Dataset("mnist_dataset/mnist_test_10.csv", 784);
     List<Matrix> test = n.query(d);
     float performance = d.appendCorrectOrIncorrect(test);
+    System.out.println("performance = " + performance);
+
+    NeuralNetwork n2 = new NeuralNetwork(784, 100, 10, 0.3f);
+    n2.trainData(new Dataset("mnist_dataset/mnist_train.csv", 784), 1);
+    Dataset d2 = new Dataset("mnist_dataset/mnist_test.csv", 784);
+    test = n2.query(d);
+    performance = d2.appendCorrectOrIncorrect(test);
     System.out.println("performance = " + performance);
   }
 
@@ -77,7 +83,7 @@ class NeuralNetworkTest {
 
   @Test
   public void testDatasetInputs() {
-    double[][] data = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getInputs();
+    double[][] data = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getRawData();
     for (double[] i : data) {
       for (double j : i) {
         System.out.print(j);
@@ -88,7 +94,7 @@ class NeuralNetworkTest {
 
   @Test
   public void testDatasetHeaders() {
-    List<Double> d = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getHeaders();
+    List<Integer> d = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getHeaders();
     System.out.println(d);
     assertEquals(100, d.size());
   }
@@ -96,7 +102,7 @@ class NeuralNetworkTest {
   @Test
   public void testDatasetReshapedInputs() {
     double[][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv",
-        785).getReshapedInputsMatrix().getData();
+        785).getInputs().getData();
     for (double[] row : inputs) {
       System.out.print("{ ");
       for (double num : row) {

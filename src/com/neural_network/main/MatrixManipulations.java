@@ -88,7 +88,7 @@ public abstract class MatrixManipulations {
     return new Matrix(result);
   }
 
-  public static Matrix structure1dimensionalTo2dimensional(int rows, int columns,
+  public static Matrix transformToMatrix(int rows, int columns,
       double[] oneDimensional) {
     double[][] weights = new double[rows][columns];
     try {
