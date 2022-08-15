@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="All test passed once again">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Query works but the answer is always 1">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +86,20 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.neural_network.main.Main" />
+      <module name="machineLearning" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.neural_network.main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NeuralNetworkTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="machineLearning" />
       <extension name="coverage">
@@ -100,22 +111,6 @@
       <option name="PACKAGE_NAME" value="com.neural_network.test" />
       <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NeuralNetworkTest.testDatasetReshapedInputs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="machineLearning" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.neural_network.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.neural_network.test" />
-      <option name="MAIN_CLASS_NAME" value="com.neural_network.test.NeuralNetworkTest" />
-      <option name="METHOD_NAME" value="testDatasetReshapedInputs" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -170,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.NeuralNetworkTest" />
         <item itemvalue="JUnit.NeuralNetworkTest.testMultiplyMatrix" />
         <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
         <item itemvalue="JUnit.NeuralNetworkTest.testTrain" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testDatasetReshapedInputs" />
       </list>
     </recent_temporary>
   </component>
@@ -204,7 +199,7 @@
       <workItem from="1660349092947" duration="27000" />
       <workItem from="1660349358956" duration="192000" />
       <workItem from="1660350802660" duration="2400000" />
-      <workItem from="1660365823909" duration="57598000" />
+      <workItem from="1660365823909" duration="60294000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -311,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660514557989</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Query works but the answer is always 1">
+      <created>1660520976608</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1660520976608</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -343,7 +345,8 @@
     <MESSAGE value="Added Matrix class" />
     <MESSAGE value="All test passed" />
     <MESSAGE value="All test passed once again" />
-    <option name="LAST_COMMIT_MESSAGE" value="All test passed once again" />
+    <MESSAGE value="Query works but the answer is always 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Query works but the answer is always 1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -352,11 +355,6 @@
           <properties class="java.lang.ArrayIndexOutOfBoundsException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -368,6 +366,9 @@
       <configuration name="JUnit">
         <watch expression="m1" />
         <watch expression="inputs" />
+      </configuration>
+      <configuration name="Application">
+        <watch expression="hiddenErrors.firstRow" />
       </configuration>
     </watches-manager>
   </component>

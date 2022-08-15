@@ -8,7 +8,7 @@ import java.util.Random;
 public class NeuralNetwork {
 
   private static final int DEFAULT_NODES = 3;
-  private static final float DEFAULT_LEARNING_RATE = 0.3f;
+  private static final float DEFAULT_LEARNING_RATE = 0.6f;
   private final static double INITIAL_VALUE_FOR_TARGETS = 0.01;
 
   private final int inputNodes;
@@ -106,8 +106,8 @@ public class NeuralNetwork {
     Matrix outputErrors = MatrixManipulations.subtractMatrix(targets, finalOutputs);
     Matrix hiddenErrors = MatrixManipulations.multiplyMatrix(this.weightsHiddenToOutput,
         outputErrors);
-    this.weightsInputToHidden = updateWeights(hiddenErrors, hiddenOutputs, inputs);
-    this.weightsHiddenToOutput = updateWeights(outputErrors, finalOutputs, hiddenOutputs);
+    this.weightsInputToHidden = MatrixManipulations.addMatrix(updateWeights(hiddenErrors, hiddenOutputs, inputs), this.weightsInputToHidden);
+    this.weightsHiddenToOutput = MatrixManipulations.addMatrix(updateWeights(outputErrors, finalOutputs, hiddenOutputs), this.weightsHiddenToOutput);
   }
 
   private Matrix updateWeights(Matrix errors, Matrix outputs, Matrix transposedValues) {

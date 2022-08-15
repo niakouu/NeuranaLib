@@ -12,6 +12,16 @@ public abstract class MatrixManipulations {
     return new Matrix(arr);
   }
 
+  public static Matrix addMatrix(Matrix m1, Matrix m2) {
+    double[][] result = new double[m1.getRows()][m1.getColumn()];
+    for (int i = 0; i < result.length; i++) {
+      for (int j = 0; j < result[i].length; j++) {
+        result[i][j] = m1.getInputs()[i][j] + m2.getInputs()[i][j];
+      }
+    }
+    return new Matrix(result);
+  }
+
   public static Matrix multiplyMatrix(Matrix m1, Matrix m2) {
     Matrix[] arr = makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(m1, m2);
     int rows = arr[0].getRows();
