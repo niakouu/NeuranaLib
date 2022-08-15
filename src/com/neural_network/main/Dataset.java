@@ -10,7 +10,7 @@ import java.util.List;
 public class Dataset {
 
   private final double[][] inputs;
-  private List<Double> headers;
+  private final List<Double> headers;
   private Matrix reshapedInputsMatrix;
   private final int sizeOfaData;
 
@@ -31,6 +31,28 @@ public class Dataset {
 
   public Matrix getReshapedInputsMatrix() {
     return this.reshapedInputsMatrix;
+  }
+
+  public float appendCorrectOrIncorrect(List<Matrix> matrixList) {
+    List<Float> scorecard = new ArrayList<>();
+    for (int i = 0; i < matrixList.size(); i++) {
+      int label = matrixList.get(i).getHighestValuePosition();
+      if (label == this.headers.get(i)){
+        scorecard.add(1.0f);
+      }
+      else {
+        scorecard.add(0.0f);
+      }
+    }
+    return calculatePerformance(scorecard);
+  }
+
+  private float calculatePerformance(List<Float> scorecard) {
+    float total = 0;
+    for (Float score : scorecard) {
+      total += score;
+    }
+    return total / (float) scorecard.size();
   }
 
   private void reshape() {

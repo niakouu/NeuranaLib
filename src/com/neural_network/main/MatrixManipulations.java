@@ -3,7 +3,7 @@ package com.neural_network.main;
 public abstract class MatrixManipulations {
 
   public static Matrix sigmoid(Matrix matrix) {
-    double[][] arr = matrix.getInputs();
+    double[][] arr = matrix.getData();
     for (int i = 0; i < arr.length; i++) {
       for (int j = 0; j < arr[i].length; j++) {
         arr[i][j] = sigmoidForEach(arr[i][j]);
@@ -16,7 +16,7 @@ public abstract class MatrixManipulations {
     double[][] result = new double[m1.getRows()][m1.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = m1.getInputs()[i][j] + m2.getInputs()[i][j];
+        result[i][j] = m1.getData()[i][j] + m2.getData()[i][j];
       }
     }
     return new Matrix(result);
@@ -26,8 +26,8 @@ public abstract class MatrixManipulations {
     Matrix[] arr = makeRowOfFirstMatrixBeEqualToColumnOfSecondMatrix(m1, m2);
     int rows = arr[0].getRows();
     int column = arr[1].getColumn();
-    double[][] lessRows = arr[0].getInputs();
-    double[][] moreRows = arr[1].getInputs();
+    double[][] lessRows = arr[0].getData();
+    double[][] moreRows = arr[1].getData();
     double[][] result = new double[rows][column];
     for (int i = 0; i < result.length; i++) {
       int counterColumns = 0;
@@ -42,7 +42,7 @@ public abstract class MatrixManipulations {
     double[][] result = new double[arr1.getRows()][arr1.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = arr1.getInputs()[i][j] * arr2.getInputs()[i][j] * arr3.getInputs()[i][j];
+        result[i][j] = arr1.getData()[i][j] * arr2.getData()[i][j] * arr3.getData()[i][j];
       }
     }
     return new Matrix(result);
@@ -52,7 +52,7 @@ public abstract class MatrixManipulations {
     double[][] result = new double[arr.getRows()][arr.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = num * arr.getInputs()[i][j];
+        result[i][j] = num * arr.getData()[i][j];
       }
     }
     return new Matrix(result);
@@ -62,7 +62,7 @@ public abstract class MatrixManipulations {
     double[][] result = new double[matrix.getColumn()][matrix.getRows()];
     for (int i = 0; i < matrix.getRows(); i++) {
       for (int j = 0; j < matrix.getColumn(); j++) {
-        result[j][i] = matrix.getInputs()[i][j];
+        result[j][i] = matrix.getData()[i][j];
       }
     }
     return new Matrix(result);
@@ -72,7 +72,7 @@ public abstract class MatrixManipulations {
     double[][] result = new double[minuend.getRows()][minuend.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = minuend.getInputs()[i][j] - subtrahend.getInputs()[i][j];
+        result[i][j] = minuend.getData()[i][j] - subtrahend.getData()[i][j];
       }
     }
     return new Matrix(result);
@@ -82,7 +82,7 @@ public abstract class MatrixManipulations {
     double[][] result = new double[subtrahend.getRows()][subtrahend.getColumn()];
     for (int i = 0; i < result.length; i++) {
       for (int j = 0; j < result[i].length; j++) {
-        result[i][j] = minuend - subtrahend.getInputs()[i][j];
+        result[i][j] = minuend - subtrahend.getData()[i][j];
       }
     }
     return new Matrix(result);

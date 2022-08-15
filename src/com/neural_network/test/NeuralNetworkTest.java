@@ -24,13 +24,13 @@ class NeuralNetworkTest {
 
   @Test
   public void testWeightSpecification() {
-    for (double[] weight : new NeuralNetwork().getWeightsHiddenToOutput().getInputs()) {
+    for (double[] weight : new NeuralNetwork().getWeightsHiddenToOutput().getData()) {
       for (double w : weight) {
         assertTrue(w > -0.5 || w < 0.5);
       }
     }
 
-    for (double[] weight : new NeuralNetwork().getWeightsInputToHidden().getInputs()) {
+    for (double[] weight : new NeuralNetwork().getWeightsInputToHidden().getData()) {
       for (double w : weight) {
         assertTrue(w > -0.5 || w < 0.5);
       }
@@ -42,19 +42,21 @@ class NeuralNetworkTest {
     double[][] arr1 = {{1, 2, 3}, {4, 5, 6}};
     double[][] arr2 = {{7, 8}, {9, 10}, {11, 12}};
     Assertions.assertArrayEquals(new double[][]{{58, 64}, {139, 154}},
-        MatrixManipulations.multiplyMatrix(new Matrix(arr1), new Matrix(arr2)).getInputs());
+        MatrixManipulations.multiplyMatrix(new Matrix(arr1), new Matrix(arr2)).getData());
     double[][] ar1 = {{1, 2}, {3, 4}};
     double[][] ar2 = {{5, 6}, {7, 8}};
     Assertions.assertArrayEquals(new double[][]{{19, 22}, {43, 50}},
-        MatrixManipulations.multiplyMatrix(new Matrix(ar1), new Matrix(ar2)).getInputs());
+        MatrixManipulations.multiplyMatrix(new Matrix(ar1), new Matrix(ar2)).getData());
   }
 
   @Test
   public void testQuery() {
     NeuralNetwork n = new NeuralNetwork(784, 100, 10);
     n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784));
-    List<Matrix> test = n.query(new Dataset("mnist_dataset/mnist_test_10.csv", 784));
-    test.forEach(x -> x.printMatrix());
+    Dataset d = new Dataset("mnist_dataset/mnist_test_10.csv", 784);
+    List<Matrix> test = n.query(d);
+    float performance = d.appendCorrectOrIncorrect(test);
+    System.out.println("performance = " + performance);
   }
 
   @Test
@@ -63,7 +65,7 @@ class NeuralNetworkTest {
         MatrixManipulations.subtractMatrix(
             new Matrix(new double[][]{{3, 4, 4}, {5, 4, 6}}),
             new Matrix(new double[][]{{2, 5, 1}, {6, 4, 4}}
-        )).getInputs());
+        )).getData());
   }
 
   @Test
@@ -71,7 +73,7 @@ class NeuralNetworkTest {
     Assertions.assertArrayEquals(new double[][]{{1, -1, 3}, {-1, 0, 2}},
         MatrixManipulations.transpose(
             new Matrix(new double[][]{{1, -1}, {-1, 0}, {3, 2}})
-        ).getInputs());
+        ).getData());
   }
 
   @Test
@@ -100,7 +102,7 @@ class NeuralNetworkTest {
 
   @Test
   public void testDatasetReshapedInputs() {
-    double[][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getReshapedInputsMatrix().getInputs();
+    double[][] inputs = new Dataset("mnist_dataset/mnist_train_100.csv", 785).getReshapedInputsMatrix().getData();
       for (double[] row : inputs) {
         System.out.print("{ ");
         for (double num : row ){

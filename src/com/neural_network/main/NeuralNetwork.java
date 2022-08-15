@@ -8,7 +8,7 @@ import java.util.Random;
 public class NeuralNetwork {
 
   private static final int DEFAULT_NODES = 3;
-  private static final float DEFAULT_LEARNING_RATE = 0.6f;
+  private static final float DEFAULT_LEARNING_RATE = 0.3f;
   private final static double INITIAL_VALUE_FOR_TARGETS = 0.01;
 
   private final int inputNodes;
@@ -59,7 +59,7 @@ public class NeuralNetwork {
 
   public List<Matrix> query(Dataset inputs) {
     List<Matrix> outputs = new ArrayList<>();
-    for (double[] reshapedInputs : inputs.getReshapedInputsMatrix().getInputs()) {
+    for (double[] reshapedInputs : inputs.getReshapedInputsMatrix().getData()) {
       Matrix input = MatrixManipulations.structure1dimensionalTo2dimensional(1,
           reshapedInputs.length, reshapedInputs);
       Matrix output = getFinalOutput(input);
@@ -70,7 +70,7 @@ public class NeuralNetwork {
 
   public void trainData(Dataset data) {
     int counter = 0;
-    for (double[] reshapedInputs : data.getReshapedInputsMatrix().getInputs()) {
+    for (double[] reshapedInputs : data.getReshapedInputsMatrix().getData()) {
       Matrix inputs = MatrixManipulations.structure1dimensionalTo2dimensional(1,
           reshapedInputs.length, reshapedInputs);
       double targetValue = data.getHeaders().get(counter++);
