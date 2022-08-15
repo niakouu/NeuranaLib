@@ -1,11 +1,7 @@
 package com.neural_network.main;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 public class Dataset {
 
@@ -52,7 +48,7 @@ public class Dataset {
     for (Float score : scorecard) {
       total += score;
     }
-    return total / (float) scorecard.size();
+    return total / (float) scorecard.size() * 100;
   }
 
   private void reshape() {

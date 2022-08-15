@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Query works as wanted">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Small test works at 60%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
     </list>
@@ -88,7 +87,7 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.neural_network.main.Main" />
       <module name="machineLearning" />
@@ -167,9 +166,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.NeuralNetworkTest" />
         <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
-        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.NeuralNetworkTest.testMultiplyMatrix" />
         <item itemvalue="JUnit.NeuralNetworkTest.testTrain" />
       </list>
@@ -201,7 +200,7 @@
       <workItem from="1660349092947" duration="27000" />
       <workItem from="1660349358956" duration="192000" />
       <workItem from="1660350802660" duration="2400000" />
-      <workItem from="1660365823909" duration="68560000" />
+      <workItem from="1660365823909" duration="71256000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -322,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660524454562</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Small test works at 60%">
+      <created>1660535795132</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1660535795132</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +362,8 @@
     <MESSAGE value="All test passed once again" />
     <MESSAGE value="Query works but the answer is always 1" />
     <MESSAGE value="Query works as wanted" />
-    <option name="LAST_COMMIT_MESSAGE" value="Query works as wanted" />
+    <MESSAGE value="Small test works at 60%" />
+    <option name="LAST_COMMIT_MESSAGE" value="Small test works at 60%" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

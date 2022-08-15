@@ -1,12 +1,8 @@
 package com.neural_network.test;
 
-import com.neural_network.main.Dataset;
-import com.neural_network.main.MatrixManipulations;
-import com.neural_network.main.Matrix;
-import com.neural_network.main.NeuralNetwork;
+import com.neural_network.main.*;
+import org.junit.jupiter.api.*;
 import java.util.List;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -52,7 +48,7 @@ class NeuralNetworkTest {
   @Test
   public void testQuery() {
     NeuralNetwork n = new NeuralNetwork(784, 100, 10);
-    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784));
+    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784), 1);
     Dataset d = new Dataset("mnist_dataset/mnist_test_10.csv", 784);
     List<Matrix> test = n.query(d);
     float performance = d.appendCorrectOrIncorrect(test);
@@ -79,7 +75,7 @@ class NeuralNetworkTest {
   @Test
   public void testTrain() {
     NeuralNetwork n = new NeuralNetwork(784, 100, 10);
-    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784));
+    n.trainData(new Dataset("mnist_dataset/mnist_train_100.csv", 784), 1);
   }
 
   @Test

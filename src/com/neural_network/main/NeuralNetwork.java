@@ -1,9 +1,6 @@
 package com.neural_network.main;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 public class NeuralNetwork {
 
@@ -68,15 +65,17 @@ public class NeuralNetwork {
     return outputs;
   }
 
-  public void trainData(Dataset data) {
-    int counter = 0;
-    for (double[] reshapedInputs : data.getReshapedInputsMatrix().getData()) {
-      Matrix inputs = MatrixManipulations.structure1dimensionalTo2dimensional(1,
-          reshapedInputs.length, reshapedInputs);
-      double targetValue = data.getHeaders().get(counter++);
-      int target = (int) targetValue;
-      Matrix targets = initialTargetsValues(this.outputNodes, target);
-      train(inputs, targets);
+  public void trainData(Dataset data, int epochs) {
+    for (int i = 0; i < epochs; i++) {
+      int counter = 0;
+      for (double[] reshapedInputs : data.getReshapedInputsMatrix().getData()) {
+        Matrix inputs = MatrixManipulations.structure1dimensionalTo2dimensional(1,
+            reshapedInputs.length, reshapedInputs);
+        double targetValue = data.getHeaders().get(counter++);
+        int target = (int) targetValue;
+        Matrix targets = initialTargetsValues(this.outputNodes, target);
+        train(inputs, targets);
+      }
     }
   }
 
