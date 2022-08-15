@@ -103,7 +103,7 @@ public class NeuralNetwork {
   }
 
   private Matrix rescaleWeight(Matrix errors, Matrix outputs, Matrix layerInBetween) {
-    return MatrixManipulations.multiplyElementByElement(this.learningRate,
+    return MatrixManipulations.multiplyMatrixElementByElement(this.learningRate,
         getWeightsError(errors, outputs, layerInBetween));
   }
 
@@ -112,7 +112,7 @@ public class NeuralNetwork {
   }
 
   private Matrix getSigmoidWeight(Matrix errors, Matrix outputs) {
-    return MatrixManipulations.multiplyElementByElement(errors, outputs,
+    return MatrixManipulations.multiplyMatrixElementByElement(errors, outputs,
         getDifferenceWithTargetWeight(outputs));
   }
 

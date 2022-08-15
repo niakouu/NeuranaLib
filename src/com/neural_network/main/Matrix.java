@@ -30,16 +30,6 @@ public class Matrix {
     return this.firstRow;
   }
 
-  public void printMatrix() {
-    for (double[] rows : this.data) {
-      System.out.print("{ ");
-      for (double data : rows) {
-        System.out.print(data + " ");
-      }
-      System.out.println("}");
-    }
-  }
-
   public int getHighestValuePosition() {
     double highest = 0.0;
     int position = 0;

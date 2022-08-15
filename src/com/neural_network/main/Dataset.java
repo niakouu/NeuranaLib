@@ -7,8 +7,8 @@ public class Dataset {
 
   private final double[][] rawData;
   private final List<Integer> headers;
-  private Matrix inputs;
   private final int sizeOfaData;
+  private Matrix inputs;
 
   public Dataset(String directory, int sizeOfData) {
     this.sizeOfaData = sizeOfData;
@@ -51,7 +51,7 @@ public class Dataset {
     for (Float score : scorecard) {
       total += score;
     }
-    return total / (float) scorecard.size() * 100;
+    return total / (float) scorecard.size() * 100f;
   }
 
   private void reshape() {
@@ -77,8 +77,8 @@ public class Dataset {
     try {
       reader = openFile(directory);
       String line = reader.readLine();
-      while (line != null) {
-        dataList.add(parseLine(line));
+      while (isNotNull(line)) {
+        dataList.add(removeComa(line));
         line = reader.readLine();
       }
       reader.close();
@@ -88,11 +88,15 @@ public class Dataset {
     return getArrayFromDataList(dataList);
   }
 
+  private boolean isNotNull(String line) {
+    return line != null;
+  }
+
   private BufferedReader openFile(String directory) throws FileNotFoundException {
     return new BufferedReader(new FileReader(directory));
   }
 
-  private double[] parseLine(String line) {
+  private double[] removeComa(String line) {
     String[] characters = line.split(",");
     double[] inputs = new double[characters.length];
     int counter = 0;

@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Added big csv files">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
@@ -21,6 +22,7 @@
       <list>
         <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -200,7 +202,7 @@
       <workItem from="1660349092947" duration="27000" />
       <workItem from="1660349358956" duration="192000" />
       <workItem from="1660350802660" duration="2400000" />
-      <workItem from="1660365823909" duration="75636000" />
+      <workItem from="1660365823909" duration="81125000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -342,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660538643469</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java">
+      <created>1660542917626</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1660542917626</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -379,7 +388,8 @@
     <MESSAGE value="Small test works at 60%" />
     <MESSAGE value="Big test worked at 96.33%" />
     <MESSAGE value="Added big csv files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added big csv files" />
+    <MESSAGE value="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

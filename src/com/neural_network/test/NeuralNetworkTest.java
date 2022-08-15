@@ -56,7 +56,7 @@ class NeuralNetworkTest {
     NeuralNetwork n2 = new NeuralNetwork(784, 100, 10, 0.3f);
     n2.trainData(new Dataset("mnist_dataset/mnist_train.csv", 784), 1);
     Dataset d2 = new Dataset("mnist_dataset/mnist_test.csv", 784);
-    test = n2.query(d);
+    test = n2.query(d2);
     performance = d2.appendCorrectOrIncorrect(test);
     System.out.println("performance = " + performance);
   }
