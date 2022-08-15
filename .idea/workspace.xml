@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="NeuralNetwork:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Added enum Class for clarity">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Dataset.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/MatrixManipulations.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/test/NeuralNetworkTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/machineLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/machineLearning.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,11 +63,11 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "create.test.in.the.same.root": "true",
     "extract.method.default.visibility": "private",
-    "last_opened_file_path": "C:/Libraries/jfreechart-demo-1.5.2-jar-with-dependencies.jar",
+    "last_opened_file_path": "C:/Libraries/myOwn/com.machineLearning.jar",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Global Libraries",
+    "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.28",
     "settings.editor.selected.configurable": "web.server"
   },
   "keyToStringList": {
@@ -169,7 +170,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.NeuralNetworkTest" />
-        <item itemvalue="Application.com.neural_network.main.Main" />
         <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
         <item itemvalue="JUnit.NeuralNetworkTest.testMultiplyMatrix" />
         <item itemvalue="JUnit.NeuralNetworkTest.testTrain" />
@@ -202,7 +202,8 @@
       <workItem from="1660349092947" duration="27000" />
       <workItem from="1660349358956" duration="192000" />
       <workItem from="1660350802660" duration="2400000" />
-      <workItem from="1660365823909" duration="81125000" />
+      <workItem from="1660365823909" duration="81760000" />
+      <workItem from="1660602099699" duration="454000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -351,7 +352,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660542917626</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Added enum Class for clarity">
+      <created>1660601461223</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1660601461223</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -389,7 +397,8 @@
     <MESSAGE value="Big test worked at 96.33%" />
     <MESSAGE value="Added big csv files" />
     <MESSAGE value="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java" />
+    <MESSAGE value="Added enum Class for clarity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added enum Class for clarity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

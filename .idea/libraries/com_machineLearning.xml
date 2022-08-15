@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="com.machineLearning">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../Libraries/myOwn/com.machineLearning.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
