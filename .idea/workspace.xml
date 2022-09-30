@@ -9,9 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Added enum Class for clarity">
+    <list default="true" id="fc70f343-a17e-4824-a33b-6b50f5e6c9a1" name="Changes" comment="Made a jar file">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machineLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/machineLearning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/neural_network/main/NeuralNetwork.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +36,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -49,35 +52,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "TODO_SCOPE": "All Places",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "extract.method.default.visibility": "private",
-    "last_opened_file_path": "C:/Libraries/myOwn/com.machineLearning.jar",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.28",
-    "settings.editor.selected.configurable": "web.server"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;TODO_SCOPE&quot;: &quot;All Places&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Libraries/myOwn/com.machineLearning.jar&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.28&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
   },
-  "keyToStringList": {
-    "GitStage.ChangesTree.GroupingKeys": [
-      "directory",
-      "module",
-      "repository"
+  &quot;keyToStringList&quot;: {
+    &quot;GitStage.ChangesTree.GroupingKeys&quot;: [
+      &quot;directory&quot;,
+      &quot;module&quot;,
+      &quot;repository&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\edeli\Computer_Sciences\CleanCode\machineLearning\mnist_dataset" />
@@ -90,7 +93,7 @@
       <recent name="com.neural_network.test" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NeuralNetworkTest">
+  <component name="RunManager" selected="JUnit.NeuralNetworkTest.testQuery">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.neural_network.main.Main" />
       <module name="machineLearning" />
@@ -169,10 +172,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NeuralNetworkTest" />
         <item itemvalue="JUnit.NeuralNetworkTest.testQuery" />
-        <item itemvalue="JUnit.NeuralNetworkTest.testMultiplyMatrix" />
         <item itemvalue="JUnit.NeuralNetworkTest.testTrain" />
+        <item itemvalue="JUnit.NeuralNetworkTest" />
+        <item itemvalue="JUnit.NeuralNetworkTest.testMultiplyMatrix" />
       </list>
     </recent_temporary>
   </component>
@@ -204,6 +207,19 @@
       <workItem from="1660350802660" duration="2400000" />
       <workItem from="1660365823909" duration="81760000" />
       <workItem from="1660602099699" duration="454000" />
+      <workItem from="1660603258370" duration="780000" />
+      <workItem from="1660705755979" duration="165000" />
+      <workItem from="1661200145223" duration="77000" />
+      <workItem from="1661200964256" duration="842000" />
+      <workItem from="1661215304335" duration="395000" />
+      <workItem from="1661562769668" duration="940000" />
+      <workItem from="1662302455900" duration="26000" />
+      <workItem from="1662559264952" duration="658000" />
+      <workItem from="1662590113177" duration="598000" />
+      <workItem from="1662923339648" duration="167000" />
+      <workItem from="1662990735879" duration="173000" />
+      <workItem from="1663091882476" duration="20000" />
+      <workItem from="1664557848592" duration="3058000" />
     </task>
     <task id="LOCAL-00001" summary="Testing commit on Intellij">
       <created>1660000689917</created>
@@ -359,7 +375,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660601461223</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Made a jar file">
+      <created>1660603290957</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1660603290957</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -398,7 +421,8 @@
     <MESSAGE value="Added big csv files" />
     <MESSAGE value="Cleaned NeuralNetwork&#10;Added NeuralNetworkHiddenElements.java" />
     <MESSAGE value="Added enum Class for clarity" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added enum Class for clarity" />
+    <MESSAGE value="Made a jar file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a jar file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

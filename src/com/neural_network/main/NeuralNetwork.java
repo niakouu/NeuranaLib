@@ -4,8 +4,8 @@ import java.util.*;
 
 public class NeuralNetwork {
 
-  private static final int DEFAULT_NODES = 3;
-  private static final float DEFAULT_LEARNING_RATE = 0.3f;
+  private final static int DEFAULT_NODES = 3;
+  private final static float DEFAULT_LEARNING_RATE = 0.3f;
   private final static double INITIAL_VALUE_FOR_TARGETS = 0.01;
 
   private final int inputNodes;
